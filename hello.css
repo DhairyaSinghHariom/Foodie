@@ -1,0 +1,464 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --lead: #000000;
+    --gold-finger: #FFD700;
+    --eye-ball: #FFFFFF;
+    --hint-yellow: #FFFFE0;
+    --pure-white: #FFFFFF;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--eye-ball);
+}
+
+/* =========================
+   BASIC STYLING
+========================= */
+
+a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--lead);
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+/* =========================
+   FLEX UTILITIES
+========================= */
+
+.flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.between {
+    justify-content: space-between;
+}
+
+.gap-2 {
+    gap: 2rem;
+}
+
+.gap-3 {
+    gap: 3rem;
+}
+
+/* =========================
+   COMMON CLASSES
+========================= */
+
+.wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding-inline: 1.5rem;
+}
+
+.p-top {
+    padding-top: 10rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h5 {
+    font-size: 1.2rem;
+    letter-spacing: 0.8rem;
+    color: var(--gold-finger);
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 3.7rem;
+    text-transform: capitalize;
+    color: var(--lead);
+}
+
+p {
+    font-size: 1.25rem;
+    color: gray;
+    line-height: 1.8;
+    font-weight: 400;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    width: 100%;
+    position: relative;
+}
+
+.navbar {
+    min-height: 14vh;
+}
+
+/* Logo */
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gold-finger);
+}
+
+/* Navigation */
+
+.navlist a {
+    transition: color 0.3s ease;
+}
+
+.navlist a:hover {
+    color: var(--gold-finger);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: var(--gold-finger);
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    color: var(--pure-white);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--lead);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   CART ICON
+========================= */
+
+.cart-icon {
+    position: relative;
+    color: var(--lead);
+    font-size: 1.3rem;
+}
+
+.cart-value {
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    width: 20px;
+    height: 20px;
+    font-size: 0.85rem;
+    border-radius: 50%;
+    background: var(--gold-finger);
+    color: var(--lead);
+    text-align: center;
+    line-height: 20px;
+}
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.desktop-action .hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    max-width: 320px;
+    padding: 2rem;
+
+    background: var(--pure-white);
+    border: 1px solid var(--gold-finger);
+    border-radius: 1rem;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+    z-index: 1000;
+}
+
+/* Show mobile menu when active */
+
+.mobile-menu.mobile-menu-active {
+    display: flex;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-section {
+    min-height: calc(100vh - 14vh);
+    gap: 3rem;
+}
+
+.content,
+.image-container {
+    flex: 1;
+    flex-basis: 300px;
+}
+
+h1 {
+    font-size: clamp(3rem, 5.6vw, 6rem);
+    color: var(--lead);
+}
+
+h1 span {
+    color: var(--gold-finger);
+}
+
+.para {
+    margin-block: 2rem;
+    max-width: 550px;
+}
+
+
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+
+.social-icon {
+    display: inline-block;
+    background: var(--hint-yellow);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 3rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon:hover {
+    background: var(--lead);
+    color: var(--pure-white);
+    transform: translateY(-3px);
+}
+
+/* =========================
+   SERVICES SECTION
+========================= */
+
+.service {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.service-card {
+    flex: 1;
+    flex-basis: 250px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.service-card .image-container {
+    max-width: 200px;
+    margin: auto;
+}
+
+.service-card h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.8rem;
+    color: var(--lead);
+}
+
+/* Section 02 */
+.order-card img {
+    width: 15rem;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding:.1rem 2rem 1rem ;
+
+    border: 3px solid var(--gold-finger);
+    border-radius: 2rem;
+    padding: 0.5rem;
+}
+.order-card img {
+    width: 15rem;
+}
+
+h4{
+    font-size: 1.8rem;
+    color:var(--lead)
+}
+.order-card.price{
+    font-size: 1.7rem;
+    color: var(--pure-white);
+    padding:1.3rem 0 2rem ;
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 5rem;
+}
+
+/* =========================
+   TABLET / MOBILE
+========================= */
+
+@media screen and (max-width: 780px) {
+
+    .navlist,
+    .desktop-action .btn {
+        display: none;
+    }
+
+    .desktop-action .hamburger {
+        display: block;
+    }
+
+    .hero-section {
+        min-height: auto;
+        padding-top: 3rem;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero-section .content,
+    .hero-section .image-container {
+        flex-basis: 100%;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h5 {
+        letter-spacing: 0.4rem;
+    }
+
+    .para {
+        margin-inline: auto;
+    }
+
+    .content .flex {
+        justify-content: center;
+    }
+
+    .p-top {
+        padding-top: 5rem;
+    }
+
+    .service {
+        gap: 2rem;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media screen and (max-width: 480px) {
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+        letter-spacing: 0.2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .gap-2 {
+        gap: 1rem;
+    }
+
+    .gap-3 {
+        gap: 1.5rem;
+    }
+
+    .wrapper {
+        padding-inline: 1rem;
+    }
+
+    .service-card {
+        flex-basis: 100%;
+    }
+}
+

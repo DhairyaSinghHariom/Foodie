@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Foodie - Delicious Food Delivered</title>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
+  <style>
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
+
+    /* =========================
+       COMMON
+    ========================= */
+
+    .wrapper {
+      max-width: 1200px;
+      margin: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .flex {
+      display: flex;
+      align-items: center;
+    }
+
+    .between {
+      justify-content: space-between;
+    }
+
+    .gap-2 {
+      gap: 15px;
+    }
+
+    .gap-3 {
+      gap: 35px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .p-top {
+      padding-top: 100px;
+    }
+
+    h1 {
+      font-size: 65px;
+      line-height: 1.15;
+    }
+
+    h1 span,
+    .logo span,
+    h5 {
+      color: #ff6b00;
+    }
+
+    h2 {
+      font-size: 38px;
+      margin-top: 10px;
+    }
+
+    h3 {
+      margin: 12px 0;
+    }
+
+    h5 {
+      font-size: 18px;
+    }
+
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #ff6b00;
+      color: white;
+
+      border: none;
+      border-radius: 30px;
+
+      padding: 12px 24px;
+
+      cursor: pointer;
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #e85e00;
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(255, 255, 255, 0.96);
+
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar {
+      height: 80px;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 800;
+      color: #222;
+    }
+
+    .navlist {
+      list-style: none;
+    }
+
+    .navlist a {
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .navlist a:hover {
+      color: #ff6b00;
+    }
+
+    .cart-icon {
+      position: relative;
+      font-size: 22px;
+    }
+
+    .cart-value {
+      position: absolute;
+
+      top: -12px;
+      right: -12px;
+
+      width: 20px;
+      height: 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+
+      background: #ff6b00;
+      color: white;
+
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 22px;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero-section {
+      min-height: calc(100vh - 80px);
+
+      justify-content: space-between;
+
+      gap: 50px;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    .para {
+      margin: 20px 0 25px;
+
+      color: #666;
+
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      flex: 1;
+
+      display: flex;
+
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 500px;
+      max-height: 500px;
+
+      object-fit: contain;
+    }
+
+    .social-icon {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid #ddd;
+
+      border-radius: 50%;
+
+      color: #ff6b00;
+
+      transition: 0.3s;
+    }
+
+    .social-icon:hover {
+      background: #ff6b00;
+      color: white;
+    }
+
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .service {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 40px;
+
+      margin-top: 60px;
+    }
+
+    .service-card {
+      padding: 30px;
+
+      border-radius: 20px;
+
+      background: white;
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-card .image-container {
+      height: 130px;
+
+      display: flex;
+
+      justify-content: center;
+    }
+
+    .service-card img {
+      height: 120px;
+
+      object-fit: contain;
+    }
+
+    .service-card p {
+      color: #666;
+    }
+
+
+    /* =========================
+       MENU
+    ========================= */
+
+    .card-list {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 30px;
+
+      margin-top: 60px;
+    }
+
+    .order-card {
+      padding: 25px;
+
+      background: white;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+      transition: 0.3s;
+    }
+
+    .order-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card-image {
+      height: 200px;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+    }
+
+    .card-image img {
+      width: 180px;
+      height: 180px;
+
+      object-fit: contain;
+    }
+
+    .order-card p {
+      color: #777;
+
+      font-size: 14px;
+
+      margin: 5px 0;
+    }
+
+    .price {
+      color: #ff6b00;
+
+      font-size: 20px;
+
+      margin: 10px 0 15px;
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-section {
+      max-width: 850px;
+    }
+
+    .about-section p {
+      margin-top: 20px;
+
+      color: #666;
+
+      font-size: 17px;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-section {
+      max-width: 700px;
+
+      padding-bottom: 100px;
+    }
+
+    #contactForm {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 15px;
+
+      margin-top: 40px;
+    }
+
+    #contactForm input,
+    #contactForm textarea {
+      width: 100%;
+
+      border: 1px solid #ddd;
+
+      border-radius: 10px;
+
+      padding: 14px;
+
+      outline: none;
+
+      resize: vertical;
+    }
+
+    #contactForm input:focus,
+    #contactForm textarea:focus {
+      border-color: #ff6b00;
+    }
+
+
+    /* =========================
+       CART
+    ========================= */
+
+    .cart-box {
+      position: fixed;
+
+      top: 0;
+      right: -400px;
+
+      width: 380px;
+      height: 100vh;
+
+      background: white;
+
+      z-index: 2000;
+
+      padding: 25px;
+
+      box-shadow:
+        -5px 0 20px rgba(0, 0, 0, 0.15);
+
+      transition: 0.4s;
+
+      overflow-y: auto;
+    }
+
+    .cart-box.active {
+      right: 0;
+    }
+
+    .cart-header {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      border-bottom: 1px solid #ddd;
+
+      padding-bottom: 15px;
+    }
+
+    .cart-header button {
+      background: none;
+
+      border: none;
+
+      font-size: 22px;
+
+      cursor: pointer;
+    }
+
+    .cart-item {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding: 15px 0;
+
+      border-bottom: 1px solid #eee;
+    }
+
+    .cart-item p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .cart-item button {
+      border: none;
+
+      background: #ff6b00;
+
+      color: white;
+
+      width: 30px;
+      height: 30px;
+
+      border-radius: 50%;
+
+      cursor: pointer;
+    }
+
+    .cart-total {
+      display: flex;
+
+      justify-content: space-between;
+
+      margin: 25px 0;
+
+      font-size: 20px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #181818;
+
+      color: white;
+
+      margin-top: 50px;
+    }
+
+    .footer-content {
+      display: grid;
+
+      grid-template-columns:
+        2fr 1fr 1fr;
+
+      gap: 50px;
+
+      padding-top: 60px;
+
+      padding-bottom: 40px;
+    }
+
+    .footer-content .logo {
+      color: white;
+    }
+
+    .footer-content p {
+      color: #aaa;
+
+      margin-top: 15px;
+    }
+
+    .footer-content h3 {
+      margin-bottom: 15px;
+    }
+
+    .footer-content > div:nth-child(2) a {
+      display: block;
+
+      color: #aaa;
+
+      margin: 8px 0;
+    }
+
+    .footer-content > div:nth-child(2) a:hover {
+      color: #ff6b00;
+    }
+
+    .footer-social {
+      display: flex;
+
+      gap: 15px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      border: 1px solid #555;
+
+      border-radius: 50%;
+
+      transition: 0.3s;
+    }
+
+    .footer-social a:hover {
+      background: #ff6b00;
+
+      border-color: #ff6b00;
+    }
+
+    .copyright {
+      text-align: center;
+
+      border-top: 1px solid #333;
+
+      padding: 20px;
+
+      color: #888;
+    }
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    .navlist.mobile-menu {
+      display: flex;
+
+      position: absolute;
+
+      top: 80px;
+
+      left: 0;
+
+      width: 100%;
+
+      flex-direction: column;
+
+      gap: 20px;
+
+      padding: 25px;
+
+      background: white;
+
+      box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.1);
+
+      text-align: center;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      h1 {
+        font-size: 50px;
+      }
+
+      .navlist {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .hero-section {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding-top: 60px;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .service {
+        grid-template-columns: 1fr;
+      }
+
+      .card-list {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .footer-content {
+        grid-template-columns:
+          1fr 1fr;
+      }
+    }
+
+
+    @media (max-width: 600px) {
+
+      .navbar {
+        height: 70px;
+      }
+
+      .desktop-action .btn {
+        display: none;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .hero-image img {
+        width: 320px;
+      }
+
+      .card-list {
+        grid-template-columns: 1fr;
+      }
+
+      .cart-box {
+        width: 100%;
+
+        right: -100%;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <nav class="navbar flex between wrapper">
+
+      <a href="#" class="logo">
+        Foodie<span>.</span>
+      </a>
+
+
+      <ul class="navlist flex gap-3">
+
+        <li>
+          <a href="#home">Home</a>
+        </li>
+
+        <li>
+          <a href="#menu">Menu</a>
+        </li>
+
+        <li>
+          <a href="#about">About</a>
+        </li>
+
+        <li>
+          <a href="#services">Services</a>
+        </li>
+
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+
+      </ul>
+
+
+      <div class="desktop-action flex gap-2">
+
+        <!-- CART -->
+
+        <a href="#" class="cart-icon" id="cartBtn">
+
+          <i class="fa-solid fa-bag-shopping"></i>
+
+          <span class="cart-value">0</span>
+
+        </a>
+
+
+        <!-- SIGN IN -->
+
+        <a href="#" class="btn">
+
+          Sign In
+
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+        </a>
+
+
+        <!-- HAMBURGER -->
+
+        <a href="#" class="hamburger" id="hamburger">
+
+          <i class="fa-solid fa-bars"></i>
+
+        </a>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section id="home">
+
+      <div class="hero-section flex wrapper">
+
+        <div class="content">
+
+          <h1>
+
+            Enjoy Your <br>
+
+            Delicious <span>Food</span>
+
+          </h1>
+
+
+          <p class="para">
+
+            We will fill your tummy with delicious
+            food with fast delivery.
+
+          </p>
+
+
+          <div class="hero-buttons flex gap-2">
+
+            <a href="#menu" class="btn">
+
+              Order Now
+
+            </a>
+
+
+            <a href="#" class="social-icon">
+
+              <i class="fa-brands fa-facebook"></i>
+
+            </a>
+
+
+            <a href="#" class="social-icon">
+
+              <i class="fa-brands fa-x-twitter"></i>
+
+            </a>
+
+
+            <a href="#" class="social-icon">
+
+              <i class="fa-brands fa-instagram"></i>
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+          <img
+            src="./image/delivery-boy.png"
+            alt="Food delivery person"
+          >
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section id="services">
+
+      <div class="wrapper p-top">
+
+        <div class="text-center">
+
+          <h5>Our Services</h5>
+
+          <h2>How Does It Work?</h2>
+
+        </div>
+
+
+        <div class="service">
+
+
+          <div class="service-card">
+
+            <div class="image-container">
+
+              <img
+                src="./image/easy-to-order.png"
+                alt="Easy to order"
+              >
+
+            </div>
+
+            <h3>Easy to Order</h3>
+
+            <p>
+              You only need a few steps to order
+              your favourite food.
+            </p>
+
+          </div>
+
+
+          <div class="service-card">
+
+            <div class="image-container">
+
+              <img
+                src="./image/fast-delivery.png"
+                alt="Fast delivery"
+              >
+
+            </div>
+
+            <h3>Fast Delivery</h3>
+
+            <p>
+              Your food is delivered fresh,
+              quickly and safely.
+            </p>
+
+          </div>
+
+
+          <div class="service-card">
+
+            <div class="image-container">
+
+              <img
+                src="./image/best-quality.png"
+                alt="Best quality"
+              >
+
+            </div>
+
+            <h3>Best Quality</h3>
+
+            <p>
+              We use fresh ingredients to
+              provide the best quality food.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= MENU ================= -->
+
+    <section id="menu">
+
+      <div class="wrapper p-top">
+
+        <div class="text-center">
+
+          <h5>Our Menu</h5>
+
+          <h2>The Most Popular</h2>
+
+        </div>
+
+
+        <div class="card-list">
+
+
+          <!-- CARD 1 -->
+
+          <div class="order-card">
+
+            <div class="card-image">
+
+              <img
+                src="./image/burger.png"
+                alt="Double Beef Burger"
+              >
+
+            </div>
+
+            <h4>Double Beef Burger</h4>
+
+            <p>Cheesy and juicy beef burger</p>
+
+            <h4 class="price">₹200</h4>
+
+            <button
+              class="btn add-cart"
+              data-name="Double Beef Burger"
+              data-price="200"
+            >
+              Add to Cart
+            </button>
+
+          </div>
+
+
+          <!-- CARD 2 -->
+
+          <div class="order-card">
+
+            <div class="card-image">
+
+              <img
+                src="./image/burger.png"
+                alt="Cheese Burger"
+              >
+
+            </div>
+
+            <h4>Cheese Burger</h4>
+
+            <p>Fresh burger with extra cheese</p>
+
+            <h4 class="price">₹180</h4>
+
+            <button
+              class="btn add-cart"
+              data-name="Cheese Burger"
+              data-price="180"
+            >
+              Add to Cart
+            </button>
+
+          </div>
+
+
+          <!-- CARD 3 -->
+
+          <div class="order-card">
+
+            <div class="card-image">
+
+              <img
+                src="./image/burger.png"
+                alt="Classic Burger"
+              >
+
+            </div>
+
+            <h4>Classic Burger</h4>
+
+            <p>Classic burger with fresh vegetables</p>
+
+            <h4 class="price">₹150</h4>
+
+            <button
+              class="btn add-cart"
+              data-name="Classic Burger"
+              data-price="150"
+            >
+              Add to Cart
+            </button>
+
+          </div>
+
+
+          <!-- CARD 4 -->
+
+          <div class="order-card">
+
+            <div class="card-image">
+
+              <img
+                src="./image/burger.png"
+                alt="Spicy Burger"
+              >
+
+            </div>
+
+            <h4>Spicy Burger</h4>
+
+            <p>Delicious burger with spicy sauce</p>
+
+            <h4 class="price">₹190</h4>
+
+            <button
+              class="btn add-cart"
+              data-name="Spicy Burger"
+              data-price="190"
+            >
+              Add to Cart
+            </button>
+
+          </div>
+
+
+          <!-- CARD 5 -->
+
+          <div class="order-card">
+
+            <div class="card-image">
+
+              <img
+                src="./image/burger.png"
+                alt="Chicken Burger"
+              >
+
+            </div>
+
+            <h4>Chicken Burger</h4>
+
+            <p>Crunchy chicken with fresh salad</p>
+
+            <h4 class="price">₹220</h4>
+
+            <button
+              class="btn add-cart"
+              data-name="Chicken Burger"
+              data-price="220"
+            >
+              Add to Cart
+            </button>
+
+          </div>
+
+
+          <!-- CARD 6 -->
+
+          <div class="order-card">
+
+            <div class="card-image">
+
+              <img
+                src="./image/burger.png"
+                alt="Premium Burger"
+              >
+
+            </div>
+
+            <h4>Premium Burger</h4>
+
+            <p>Our special premium burger</p>
+
+            <h4 class="price">₹250</h4>
+
+            <button
+              class="btn add-cart"
+              data-name="Premium Burger"
+              data-price="250"
+            >
+              Add to Cart
+            </button>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about">
+
+      <div class="wrapper p-top about-section">
+
+        <div class="text-center">
+
+          <h5>About Us</h5>
+
+          <h2>We Serve Delicious Food</h2>
+
+          <p>
+
+            Foodie is an online food ordering website
+            created to make your food experience easy
+            and enjoyable. Choose your favourite meal
+            and order it with just a few clicks.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section id="contact">
+
+      <div class="wrapper p-top contact-section">
+
+        <div class="text-center">
+
+          <h5>Contact Us</h5>
+
+          <h2>Get In Touch</h2>
+
+        </div>
+
+
+        <form id="contactForm">
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+            required
+          >
+
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Your Email"
+            required
+          >
+
+
+          <textarea
+            id="message"
+            placeholder="Your Message"
+            rows="5"
+            required
+          ></textarea>
+
+
+          <button type="submit" class="btn">
+
+            Send Message
+
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= CART ================= -->
+
+  <div class="cart-box" id="cartBox">
+
+
+    <div class="cart-header">
+
+      <h3>Your Cart</h3>
+
+      <button id="closeCart">
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+    </div>
+
+
+    <div id="cartItems"></div>
+
+
+    <div class="cart-total">
+
+      <strong>Total:</strong>
+
+      <strong>
+        ₹<span id="cartTotal">0</span>
+      </strong>
+
+    </div>
+
+
+    <button
+      class="btn checkout-btn"
+      id="checkoutBtn"
+    >
+
+      Checkout
+
+    </button>
+
+  </div>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="wrapper footer-content">
+
+
+      <div>
+
+        <a href="#" class="logo">
+
+          Foodie<span>.</span>
+
+        </a>
+
+        <p>
+          Delicious food delivered
+          directly to your door.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Quick Links</h3>
+
+        <a href="#home">Home</a>
+
+        <a href="#menu">Menu</a>
+
+        <a href="#about">About</a>
+
+        <a href="#contact">Contact</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Follow Us</h3>
+
+        <div class="footer-social">
+
+          <a href="#">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+
+          <a href="#">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="#">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+      <p>
+        © 2026 Foodie. All Rights Reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    // =========================
+    // CART
+    // =========================
+
+    let cart = [];
+
+
+    const cartBtn =
+      document.getElementById("cartBtn");
+
+    const cartBox =
+      document.getElementById("cartBox");
+
+    const closeCart =
+      document.getElementById("closeCart");
+
+    const cartItems =
+      document.getElementById("cartItems");
+
+    const cartValue =
+      document.querySelector(".cart-value");
+
+    const cartTotal =
+      document.getElementById("cartTotal");
+
+
+    // Open cart
+
+    cartBtn.addEventListener("click", function(e) {
+
+      e.preventDefault();
+
+      cartBox.classList.add("active");
+
+    });
+
+
+    // Close cart
+
+    closeCart.addEventListener("click", function() {
+
+      cartBox.classList.remove("active");
+
+    });
+
+
+    // =========================
+    // ADD TO CART
+    // =========================
+
+    const addButtons =
+      document.querySelectorAll(".add-cart");
+
+
+    addButtons.forEach(function(button) {
+
+      button.addEventListener("click", function() {
+
+        const name =
+          button.dataset.name;
+
+        const price =
+          Number(button.dataset.price);
+
+
+        const existingItem =
+          cart.find(item =>
+            item.name === name
+          );
+
+
+        if (existingItem) {
+
+          existingItem.quantity++;
+
+        } else {
+
+          cart.push({
+
+            name: name,
+
+            price: price,
+
+            quantity: 1
+
+          });
+
+        }
+
+
+        updateCart();
+
+        cartBox.classList.add("active");
+
+      });
+
+    });
+
+
+    // =========================
+    // UPDATE CART
+    // =========================
+
+    function updateCart() {
+
+      cartItems.innerHTML = "";
+
+
+      let totalItems = 0;
+
+      let totalPrice = 0;
+
+
+      cart.forEach(function(item, index) {
+
+        totalItems += item.quantity;
+
+        totalPrice +=
+          item.price * item.quantity;
+
+
+        const div =
+          document.createElement("div");
+
+
+        div.classList.add("cart-item");
+
+
+        div.innerHTML = `
+
+          <div>
+
+            <strong>
+              ${item.name}
+            </strong>
+
+            <p>
+              ₹${item.price}
+              ×
+              ${item.quantity}
+            </p>
+
+          </div>
+
+
+          <button
+            onclick="removeItem(${index})"
+          >
+
+            <i class="fa-solid fa-trash"></i>
+
+          </button>
+
+        `;
+
+
+        cartItems.appendChild(div);
+
+      });
+
+
+      cartValue.textContent =
+        totalItems;
+
+      cartTotal.textContent =
+        totalPrice;
+
+    }
+
+
+    // =========================
+    // REMOVE ITEM
+    // =========================
+
+    function removeItem(index) {
+
+      cart.splice(index, 1);
+
+      updateCart();
+
+    }
+
+
+    // =========================
+    // CHECKOUT
+    // =========================
+
+    document
+      .getElementById("checkoutBtn")
+      .addEventListener("click", function() {
+
+
+        if (cart.length === 0) {
+
+          alert("Your cart is empty!");
+
+          return;
+
+        }
+
+
+        alert(
+          "Thank you for your order! Your food is being prepared."
+        );
+
+
+        cart = [];
+
+        updateCart();
+
+        cartBox.classList.remove("active");
+
+      });
+
+
+    // =========================
+    // CONTACT FORM
+    // =========================
+
+    document
+      .getElementById("contactForm")
+      .addEventListener("submit", function(e) {
+
+
+        e.preventDefault();
+
+
+        const name =
+          document.getElementById("name").value;
+
+
+        alert(
+          `Thank you ${name}! Your message has been sent.`
+        );
+
+
+        this.reset();
+
+      });
+
+
+    // =========================
+    // MOBILE MENU
+    // =========================
+
+    const hamburger =
+      document.getElementById("hamburger");
+
+    const navlist =
+      document.querySelector(".navlist");
+
+
+    hamburger.addEventListener("click", function(e) {
+
+      e.preventDefault();
+
+      navlist.classList.toggle("mobile-menu");
+
+    });
+
+
+    // Close mobile menu after clicking link
+
+    document
+      .querySelectorAll(".navlist a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          navlist.classList.remove("mobile-menu");
+
+        });
+
+      });
+
+  </script>
+
+</body>
+
+</html>
